@@ -1,0 +1,3 @@
+/userData/wwk/work/async_log/example/CMakeFiles/async_log.dir
+/userData/wwk/work/async_log/example/CMakeFiles/edit_cache.dir
+/userData/wwk/work/async_log/example/CMakeFiles/rebuild_cache.dir

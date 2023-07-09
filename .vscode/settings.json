@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "time.h": "c",
+        "typeinfo": "c",
+        "unistd.h": "c",
+        "stor_printf.h": "c"
+    }
+}
