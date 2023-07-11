@@ -22,6 +22,11 @@ add_executable(${PROJECT_NAME}
     ../src/stor_printf/stor_printf.c
     ../src/stor_printf/lstLib.c
     ../src/log/async_log.c
+    ../src/log/ftp_printf.c
+    ../src/log/packet.c
+    ../src/cmd/app_cmd_server.c
+    ../src/cmd/app_cmd_server.c
+    ../src/cmd/app_sys_cmd.c
 )
 
 # ÃÌº”“¿¿µµƒø‚

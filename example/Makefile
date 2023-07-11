@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /userData/wwk/work/async_log/example
+CMAKE_SOURCE_DIR = /userData/wwk/temp/async_log/example
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /userData/wwk/work/async_log/example
+CMAKE_BINARY_DIR = /userData/wwk/temp/async_log/example
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /userData/wwk/work/async_log/example/CMakeFiles /userData/wwk/work/async_log/example//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /userData/wwk/temp/async_log/example/CMakeFiles /userData/wwk/temp/async_log/example//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /userData/wwk/work/async_log/example/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /userData/wwk/temp/async_log/example/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -153,101 +153,197 @@ app_log.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/app_log.c.s
 .PHONY : app_log.c.s
 
-userData/wwk/work/async_log/src/log/async_log.o: userData/wwk/work/async_log/src/log/async_log.c.o
-.PHONY : userData/wwk/work/async_log/src/log/async_log.o
+userData/wwk/temp/async_log/src/cmd/app_cmd_server.o: userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.o
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_cmd_server.o
 
 # target to build an object file
-userData/wwk/work/async_log/src/log/async_log.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/log/async_log.c.o
-.PHONY : userData/wwk/work/async_log/src/log/async_log.c.o
+userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.o
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.o
 
-userData/wwk/work/async_log/src/log/async_log.i: userData/wwk/work/async_log/src/log/async_log.c.i
-.PHONY : userData/wwk/work/async_log/src/log/async_log.i
+userData/wwk/temp/async_log/src/cmd/app_cmd_server.i: userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.i
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_cmd_server.i
 
 # target to preprocess a source file
-userData/wwk/work/async_log/src/log/async_log.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/log/async_log.c.i
-.PHONY : userData/wwk/work/async_log/src/log/async_log.c.i
+userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.i
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.i
 
-userData/wwk/work/async_log/src/log/async_log.s: userData/wwk/work/async_log/src/log/async_log.c.s
-.PHONY : userData/wwk/work/async_log/src/log/async_log.s
+userData/wwk/temp/async_log/src/cmd/app_cmd_server.s: userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.s
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_cmd_server.s
 
 # target to generate assembly for a file
-userData/wwk/work/async_log/src/log/async_log.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/log/async_log.c.s
-.PHONY : userData/wwk/work/async_log/src/log/async_log.c.s
+userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.s
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_cmd_server.c.s
 
-userData/wwk/work/async_log/src/stor_printf/common_utils.o: userData/wwk/work/async_log/src/stor_printf/common_utils.c.o
-.PHONY : userData/wwk/work/async_log/src/stor_printf/common_utils.o
+userData/wwk/temp/async_log/src/cmd/app_sys_cmd.o: userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.o
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_sys_cmd.o
 
 # target to build an object file
-userData/wwk/work/async_log/src/stor_printf/common_utils.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/stor_printf/common_utils.c.o
-.PHONY : userData/wwk/work/async_log/src/stor_printf/common_utils.c.o
+userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.o
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.o
 
-userData/wwk/work/async_log/src/stor_printf/common_utils.i: userData/wwk/work/async_log/src/stor_printf/common_utils.c.i
-.PHONY : userData/wwk/work/async_log/src/stor_printf/common_utils.i
+userData/wwk/temp/async_log/src/cmd/app_sys_cmd.i: userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.i
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_sys_cmd.i
 
 # target to preprocess a source file
-userData/wwk/work/async_log/src/stor_printf/common_utils.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/stor_printf/common_utils.c.i
-.PHONY : userData/wwk/work/async_log/src/stor_printf/common_utils.c.i
+userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.i
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.i
 
-userData/wwk/work/async_log/src/stor_printf/common_utils.s: userData/wwk/work/async_log/src/stor_printf/common_utils.c.s
-.PHONY : userData/wwk/work/async_log/src/stor_printf/common_utils.s
+userData/wwk/temp/async_log/src/cmd/app_sys_cmd.s: userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.s
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_sys_cmd.s
 
 # target to generate assembly for a file
-userData/wwk/work/async_log/src/stor_printf/common_utils.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/stor_printf/common_utils.c.s
-.PHONY : userData/wwk/work/async_log/src/stor_printf/common_utils.c.s
+userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.s
+.PHONY : userData/wwk/temp/async_log/src/cmd/app_sys_cmd.c.s
 
-userData/wwk/work/async_log/src/stor_printf/lstLib.o: userData/wwk/work/async_log/src/stor_printf/lstLib.c.o
-.PHONY : userData/wwk/work/async_log/src/stor_printf/lstLib.o
+userData/wwk/temp/async_log/src/log/async_log.o: userData/wwk/temp/async_log/src/log/async_log.c.o
+.PHONY : userData/wwk/temp/async_log/src/log/async_log.o
 
 # target to build an object file
-userData/wwk/work/async_log/src/stor_printf/lstLib.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/stor_printf/lstLib.c.o
-.PHONY : userData/wwk/work/async_log/src/stor_printf/lstLib.c.o
+userData/wwk/temp/async_log/src/log/async_log.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/log/async_log.c.o
+.PHONY : userData/wwk/temp/async_log/src/log/async_log.c.o
 
-userData/wwk/work/async_log/src/stor_printf/lstLib.i: userData/wwk/work/async_log/src/stor_printf/lstLib.c.i
-.PHONY : userData/wwk/work/async_log/src/stor_printf/lstLib.i
+userData/wwk/temp/async_log/src/log/async_log.i: userData/wwk/temp/async_log/src/log/async_log.c.i
+.PHONY : userData/wwk/temp/async_log/src/log/async_log.i
 
 # target to preprocess a source file
-userData/wwk/work/async_log/src/stor_printf/lstLib.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/stor_printf/lstLib.c.i
-.PHONY : userData/wwk/work/async_log/src/stor_printf/lstLib.c.i
+userData/wwk/temp/async_log/src/log/async_log.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/log/async_log.c.i
+.PHONY : userData/wwk/temp/async_log/src/log/async_log.c.i
 
-userData/wwk/work/async_log/src/stor_printf/lstLib.s: userData/wwk/work/async_log/src/stor_printf/lstLib.c.s
-.PHONY : userData/wwk/work/async_log/src/stor_printf/lstLib.s
+userData/wwk/temp/async_log/src/log/async_log.s: userData/wwk/temp/async_log/src/log/async_log.c.s
+.PHONY : userData/wwk/temp/async_log/src/log/async_log.s
 
 # target to generate assembly for a file
-userData/wwk/work/async_log/src/stor_printf/lstLib.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/stor_printf/lstLib.c.s
-.PHONY : userData/wwk/work/async_log/src/stor_printf/lstLib.c.s
+userData/wwk/temp/async_log/src/log/async_log.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/log/async_log.c.s
+.PHONY : userData/wwk/temp/async_log/src/log/async_log.c.s
 
-userData/wwk/work/async_log/src/stor_printf/stor_printf.o: userData/wwk/work/async_log/src/stor_printf/stor_printf.c.o
-.PHONY : userData/wwk/work/async_log/src/stor_printf/stor_printf.o
+userData/wwk/temp/async_log/src/log/ftp_printf.o: userData/wwk/temp/async_log/src/log/ftp_printf.c.o
+.PHONY : userData/wwk/temp/async_log/src/log/ftp_printf.o
 
 # target to build an object file
-userData/wwk/work/async_log/src/stor_printf/stor_printf.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/stor_printf/stor_printf.c.o
-.PHONY : userData/wwk/work/async_log/src/stor_printf/stor_printf.c.o
+userData/wwk/temp/async_log/src/log/ftp_printf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/log/ftp_printf.c.o
+.PHONY : userData/wwk/temp/async_log/src/log/ftp_printf.c.o
 
-userData/wwk/work/async_log/src/stor_printf/stor_printf.i: userData/wwk/work/async_log/src/stor_printf/stor_printf.c.i
-.PHONY : userData/wwk/work/async_log/src/stor_printf/stor_printf.i
+userData/wwk/temp/async_log/src/log/ftp_printf.i: userData/wwk/temp/async_log/src/log/ftp_printf.c.i
+.PHONY : userData/wwk/temp/async_log/src/log/ftp_printf.i
 
 # target to preprocess a source file
-userData/wwk/work/async_log/src/stor_printf/stor_printf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/stor_printf/stor_printf.c.i
-.PHONY : userData/wwk/work/async_log/src/stor_printf/stor_printf.c.i
+userData/wwk/temp/async_log/src/log/ftp_printf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/log/ftp_printf.c.i
+.PHONY : userData/wwk/temp/async_log/src/log/ftp_printf.c.i
 
-userData/wwk/work/async_log/src/stor_printf/stor_printf.s: userData/wwk/work/async_log/src/stor_printf/stor_printf.c.s
-.PHONY : userData/wwk/work/async_log/src/stor_printf/stor_printf.s
+userData/wwk/temp/async_log/src/log/ftp_printf.s: userData/wwk/temp/async_log/src/log/ftp_printf.c.s
+.PHONY : userData/wwk/temp/async_log/src/log/ftp_printf.s
 
 # target to generate assembly for a file
-userData/wwk/work/async_log/src/stor_printf/stor_printf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/stor_printf/stor_printf.c.s
-.PHONY : userData/wwk/work/async_log/src/stor_printf/stor_printf.c.s
+userData/wwk/temp/async_log/src/log/ftp_printf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/log/ftp_printf.c.s
+.PHONY : userData/wwk/temp/async_log/src/log/ftp_printf.c.s
+
+userData/wwk/temp/async_log/src/log/packet.o: userData/wwk/temp/async_log/src/log/packet.c.o
+.PHONY : userData/wwk/temp/async_log/src/log/packet.o
+
+# target to build an object file
+userData/wwk/temp/async_log/src/log/packet.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/log/packet.c.o
+.PHONY : userData/wwk/temp/async_log/src/log/packet.c.o
+
+userData/wwk/temp/async_log/src/log/packet.i: userData/wwk/temp/async_log/src/log/packet.c.i
+.PHONY : userData/wwk/temp/async_log/src/log/packet.i
+
+# target to preprocess a source file
+userData/wwk/temp/async_log/src/log/packet.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/log/packet.c.i
+.PHONY : userData/wwk/temp/async_log/src/log/packet.c.i
+
+userData/wwk/temp/async_log/src/log/packet.s: userData/wwk/temp/async_log/src/log/packet.c.s
+.PHONY : userData/wwk/temp/async_log/src/log/packet.s
+
+# target to generate assembly for a file
+userData/wwk/temp/async_log/src/log/packet.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/log/packet.c.s
+.PHONY : userData/wwk/temp/async_log/src/log/packet.c.s
+
+userData/wwk/temp/async_log/src/stor_printf/common_utils.o: userData/wwk/temp/async_log/src/stor_printf/common_utils.c.o
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/common_utils.o
+
+# target to build an object file
+userData/wwk/temp/async_log/src/stor_printf/common_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/stor_printf/common_utils.c.o
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/common_utils.c.o
+
+userData/wwk/temp/async_log/src/stor_printf/common_utils.i: userData/wwk/temp/async_log/src/stor_printf/common_utils.c.i
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/common_utils.i
+
+# target to preprocess a source file
+userData/wwk/temp/async_log/src/stor_printf/common_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/stor_printf/common_utils.c.i
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/common_utils.c.i
+
+userData/wwk/temp/async_log/src/stor_printf/common_utils.s: userData/wwk/temp/async_log/src/stor_printf/common_utils.c.s
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/common_utils.s
+
+# target to generate assembly for a file
+userData/wwk/temp/async_log/src/stor_printf/common_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/stor_printf/common_utils.c.s
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/common_utils.c.s
+
+userData/wwk/temp/async_log/src/stor_printf/lstLib.o: userData/wwk/temp/async_log/src/stor_printf/lstLib.c.o
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/lstLib.o
+
+# target to build an object file
+userData/wwk/temp/async_log/src/stor_printf/lstLib.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/stor_printf/lstLib.c.o
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/lstLib.c.o
+
+userData/wwk/temp/async_log/src/stor_printf/lstLib.i: userData/wwk/temp/async_log/src/stor_printf/lstLib.c.i
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/lstLib.i
+
+# target to preprocess a source file
+userData/wwk/temp/async_log/src/stor_printf/lstLib.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/stor_printf/lstLib.c.i
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/lstLib.c.i
+
+userData/wwk/temp/async_log/src/stor_printf/lstLib.s: userData/wwk/temp/async_log/src/stor_printf/lstLib.c.s
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/lstLib.s
+
+# target to generate assembly for a file
+userData/wwk/temp/async_log/src/stor_printf/lstLib.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/stor_printf/lstLib.c.s
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/lstLib.c.s
+
+userData/wwk/temp/async_log/src/stor_printf/stor_printf.o: userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.o
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/stor_printf.o
+
+# target to build an object file
+userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.o
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.o
+
+userData/wwk/temp/async_log/src/stor_printf/stor_printf.i: userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.i
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/stor_printf.i
+
+# target to preprocess a source file
+userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.i
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.i
+
+userData/wwk/temp/async_log/src/stor_printf/stor_printf.s: userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.s
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/stor_printf.s
+
+# target to generate assembly for a file
+userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/async_log.dir/build.make CMakeFiles/async_log.dir/userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.s
+.PHONY : userData/wwk/temp/async_log/src/stor_printf/stor_printf.c.s
 
 # Help Target
 help:
@@ -261,18 +357,30 @@ help:
 	@echo "... app_log.o"
 	@echo "... app_log.i"
 	@echo "... app_log.s"
-	@echo "... userData/wwk/work/async_log/src/log/async_log.o"
-	@echo "... userData/wwk/work/async_log/src/log/async_log.i"
-	@echo "... userData/wwk/work/async_log/src/log/async_log.s"
-	@echo "... userData/wwk/work/async_log/src/stor_printf/common_utils.o"
-	@echo "... userData/wwk/work/async_log/src/stor_printf/common_utils.i"
-	@echo "... userData/wwk/work/async_log/src/stor_printf/common_utils.s"
-	@echo "... userData/wwk/work/async_log/src/stor_printf/lstLib.o"
-	@echo "... userData/wwk/work/async_log/src/stor_printf/lstLib.i"
-	@echo "... userData/wwk/work/async_log/src/stor_printf/lstLib.s"
-	@echo "... userData/wwk/work/async_log/src/stor_printf/stor_printf.o"
-	@echo "... userData/wwk/work/async_log/src/stor_printf/stor_printf.i"
-	@echo "... userData/wwk/work/async_log/src/stor_printf/stor_printf.s"
+	@echo "... userData/wwk/temp/async_log/src/cmd/app_cmd_server.o"
+	@echo "... userData/wwk/temp/async_log/src/cmd/app_cmd_server.i"
+	@echo "... userData/wwk/temp/async_log/src/cmd/app_cmd_server.s"
+	@echo "... userData/wwk/temp/async_log/src/cmd/app_sys_cmd.o"
+	@echo "... userData/wwk/temp/async_log/src/cmd/app_sys_cmd.i"
+	@echo "... userData/wwk/temp/async_log/src/cmd/app_sys_cmd.s"
+	@echo "... userData/wwk/temp/async_log/src/log/async_log.o"
+	@echo "... userData/wwk/temp/async_log/src/log/async_log.i"
+	@echo "... userData/wwk/temp/async_log/src/log/async_log.s"
+	@echo "... userData/wwk/temp/async_log/src/log/ftp_printf.o"
+	@echo "... userData/wwk/temp/async_log/src/log/ftp_printf.i"
+	@echo "... userData/wwk/temp/async_log/src/log/ftp_printf.s"
+	@echo "... userData/wwk/temp/async_log/src/log/packet.o"
+	@echo "... userData/wwk/temp/async_log/src/log/packet.i"
+	@echo "... userData/wwk/temp/async_log/src/log/packet.s"
+	@echo "... userData/wwk/temp/async_log/src/stor_printf/common_utils.o"
+	@echo "... userData/wwk/temp/async_log/src/stor_printf/common_utils.i"
+	@echo "... userData/wwk/temp/async_log/src/stor_printf/common_utils.s"
+	@echo "... userData/wwk/temp/async_log/src/stor_printf/lstLib.o"
+	@echo "... userData/wwk/temp/async_log/src/stor_printf/lstLib.i"
+	@echo "... userData/wwk/temp/async_log/src/stor_printf/lstLib.s"
+	@echo "... userData/wwk/temp/async_log/src/stor_printf/stor_printf.o"
+	@echo "... userData/wwk/temp/async_log/src/stor_printf/stor_printf.i"
+	@echo "... userData/wwk/temp/async_log/src/stor_printf/stor_printf.s"
 .PHONY : help
 
 

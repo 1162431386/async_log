@@ -86,7 +86,7 @@ const char * strtime(time_t t, char *pszTime, unsigned int uStrSize)
 
 }
 
-int is_regex_match(const char *str, const char *pattern, int cflags)
+static int is_regex_match(const char *str, const char *pattern, int cflags)
 {
 	regex_t reg;
 	int reg_errcode;

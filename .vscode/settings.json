@@ -4,6 +4,13 @@
         "time.h": "c",
         "typeinfo": "c",
         "unistd.h": "c",
-        "stor_printf.h": "c"
+        "stor_printf.h": "c",
+        "cerrno": "c",
+        "ftp_printf.h": "c",
+        "async_log.h": "c",
+        "prctl.h": "c",
+        "app_sys_cmd.h": "c",
+        "errno.h": "c",
+        "common_utils.h": "c"
     }
 }

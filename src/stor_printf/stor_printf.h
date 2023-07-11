@@ -85,11 +85,30 @@ struct stor_printf_search_param_t {
     time_t endtime; /* 结束时间 */
 };
 
+
+struct stor_printf_spfile_t {
+    char path[128]; /* sp文件的路径 */
+    unsigned int file_len; /* sp文件长度 */
+
+    /* 该sp文件起始时间被调整过: 导致sp文件中时间不均匀, 存在跳变的情况。
+     * 检索时只能按序从前往后检索, 不能采用二分法查找 
+     */
+    int starttime_adjust; 
+
+    unsigned int data_size; /* sp文件数据区大小, 单位: 字节 */
+    unsigned int data_offset; /* sp文件当前写入数据的偏移量, 范围[0, data_size - 1] */
+    
+    unsigned int start_time; /* sp文件数据的开始时间 */
+    unsigned int end_time; /* sp文件数据的截止时间 */
+};
+
 /* sp文件打印控制开关 */
 enum STOR_PRINTF_SPFILE_PRTMASK {
 	SPFILE_PRTMASK_EMPTY = 0x01,
 	SPFILE_PRTMASK_INUSE = 0x02,
 	SPFILE_PRTMASK_FULL = 0x04,
+    SPFILE_PRTMASK_OLDEST = 0x08,
+    SPFILE_PRTMASK_NEWEST = 0x10,
 };
 
 #ifdef __cplusplus
@@ -207,6 +226,16 @@ const char * stor_printf_strerr(enum STOR_PRINTF_ERRNO err);
  * @note          
  */
 void stor_printf_dbg_set(int enable_dbg);
+
+/**@fn          int stor_printf_search_spfile_count(int id, const STOR_PRINTF_SE_HANDLE h, enum STOR_PRINTF_ERRNO *err)
+ * @brief       从指定id以及指定搜索句柄h中获取一个满足搜索要求的sp文件个数
+ * @param[in]   int id    - 描述stor_printf模块的id
+ * @param[in]   STOR_PRINTF_SE_HANDLE h    - stor_printf检索实例句柄
+ * @param[out]  enum STOR_PRINTF_ERRNO *err    - 指向错误号的指针
+ * @return      >= 0: 表示sp文件个数, -1: 表示检索失败, 通过输出参数err获取具体的错误号
+ * @note
+ */
+int stor_printf_search_spfile_count(int id, const STOR_PRINTF_SE_HANDLE h, enum STOR_PRINTF_ERRNO *err);
 
 #ifdef __cplusplus
 }

@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/userData/wwk/work/async_log/example/../include
+C_INCLUDES = -I/userData/wwk/temp/async_log/example/../include
 
 C_FLAGS = 
 

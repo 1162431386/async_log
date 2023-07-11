@@ -77,4 +77,5 @@ CMakeFiles/async_log.dir/userData/wwk/work/async_log/src/log/async_log.c.o: \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h \
  /userData/wwk/work/async_log/src/log/async_log.h \
- /userData/wwk/work/async_log/example/../include/stor_printf.h
+ /userData/wwk/work/async_log/example/../include/stor_printf.h \
+ /userData/wwk/work/async_log/example/../include/fifo.h

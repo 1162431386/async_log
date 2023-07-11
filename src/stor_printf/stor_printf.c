@@ -283,6 +283,10 @@ struct sp_search_t {
      */
     int starttime_adjust; 
 
+     /* 该sp文件数据是否已分配完成
+     */
+    int allocated;
+
     unsigned int data_size; /* sp文件数据区大小, 单位: 字节 */
     unsigned int data_offset; /* sp文件当前写入数据的偏移量, 范围[0, data_size - 1] */
     
@@ -1571,7 +1575,7 @@ static void * stor_printf_main_thread(void *arg)
 
     /* 加入实际的文件管理及日志记录功能 */
     for (; ;) {
-        err = stor_printf_userdata_read(storprintf, buff, sizeof (buff), &len, 3000);
+        err = stor_printf_userdata_read(storprintf, buff, sizeof (buff), &len, 1000*30);
         if (STOR_PRINTF_SUCC != err) {
             if (STOR_PRINTF_IO_WAKEUP == err) {
                 INFO("USER wakeup \"%s\", exit now\n", threadname);
@@ -2253,6 +2257,35 @@ static enum STOR_PRINTF_ERRNO _stor_printf_search_next(struct stor_printf_t *sto
     
 }
 
+
+static enum STOR_PRINTF_ERRNO _stor_printf_spfile_search_next(struct stor_printf_t *storprintf, struct stor_printf_search_t *storprintf_se, struct stor_printf_spfile_t *spfile)
+{
+    struct sp_search_t *sp_se = NULL;
+
+    pthread_rwlock_rdlock(&storprintf->selst_rwlock);
+    {
+        sp_se = (struct sp_search_t *)lstGet(&(storprintf_se->spsearch_lst));
+        if (NULL == sp_se) {
+            pthread_rwlock_unlock(&storprintf->selst_rwlock);
+            return STOR_PRINTF_SEARCH_COMPLETE;
+        }
+
+        memset((char *)spfile, 0, sizeof (*spfile));
+        SAFE_STRNCPY(spfile->path, sp_se->path, sizeof (spfile->path));
+        spfile->file_len = sizeof (struct sp_head_t) + (sp_se->allocated ? (sp_se->data_size + sizeof (struct sp_head_t)) : sp_se->data_offset);
+        spfile->starttime_adjust = sp_se->starttime_adjust;
+        spfile->data_size = sp_se->data_size;
+        spfile->data_offset = sp_se->data_offset;
+        spfile->start_time = sp_se->start_time;
+        spfile->end_time = sp_se->end_time;
+        SAFE_FREE(sp_se);
+    }
+    pthread_rwlock_unlock(&storprintf->selst_rwlock);
+
+    return STOR_PRINTF_SUCC;
+    
+}
+
 static enum STOR_PRINTF_ERRNO _stor_printf_search_stop(struct stor_printf_t *storprintf, struct stor_printf_search_t *storprintf_se)
 {
     enum STOR_PRINTF_ERRNO err = STOR_PRINTF_SUCC;
@@ -2783,6 +2816,91 @@ int stor_printf_search_stop(int id, STOR_PRINTF_SE_HANDLE h, enum STOR_PRINTF_ER
 
 }
 
+
+/**@fn          int stor_printf_search_spfile_count(int id, const STOR_PRINTF_SE_HANDLE h, enum STOR_PRINTF_ERRNO *err)
+ * @brief       从指定id以及指定搜索句柄h中获取一个满足搜索要求的sp文件个数
+ * @param[in]   int id    - 描述stor_printf模块的id
+ * @param[in]   STOR_PRINTF_SE_HANDLE h    - stor_printf检索实例句柄
+ * @param[out]  enum STOR_PRINTF_ERRNO *err    - 指向错误号的指针
+ * @return      >= 0: 表示sp文件个数, -1: 表示检索失败, 通过输出参数err获取具体的错误号
+ * @note
+ */
+int stor_printf_search_spfile_count(int id, const STOR_PRINTF_SE_HANDLE h, enum STOR_PRINTF_ERRNO *err)
+{
+    struct stor_printf_t *storprintf = NULL;
+    struct stor_printf_search_t *storprintf_se = NULL;
+    enum STOR_PRINTF_ERRNO e = STOR_PRINTF_SUCC;
+    int count = 0;
+
+    e = id_to_stor_printf(id, &storprintf);
+    if (STOR_PRINTF_SUCC != e) {
+        STOR_PRINTF_ERRNO_SET(err, e);
+        return -1;
+    }
+    if (NULL == h) {
+        ERR("INVALID input param, h = %p\n", h);
+        STOR_PRINTF_ERRNO_SET(err, STOR_PRINTF_INVALID_INPUT);
+        return -1;
+    }
+    storprintf_se = (struct stor_printf_search_t *)h;
+
+    STORPRINTF_REFCOUNT_INC(storprintf, id, err);
+    {
+        count = lstCount(&(storprintf_se->spsearch_lst));
+    }
+    STORPRINTF_REFCOUNT_DEC(storprintf);
+    
+    STOR_PRINTF_ERRNO_SET(err, e);
+
+    return (STOR_PRINTF_SUCC == e) ? count : -1;
+
+}
+
+
+/**@fn          int stor_printf_search_spfile_next(int id, STOR_PRINTF_SE_HANDLE h, struct stor_printf_spfile_t *spfile, enum STOR_PRINTF_ERRNO *err)
+ * @brief       从指定id以及指定搜索句柄h中获取一个满足搜索要求的sp文件信息
+ * @param[in]   int id    - 描述stor_printf模块的id
+ * @param[in]   STOR_PRINTF_SE_HANDLE h    - stor_printf检索实例句柄
+ * @param[out]  struct stor_printf_spfile_t *spfile    - 指向sp文件信息结构的指针
+ * @param[out]  enum STOR_PRINTF_ERRNO *err    - 指向错误号的指针
+ * @return      0: 表示成功, -1: 表示检索失败, 通过输出参数err获取具体的错误号
+ * @note
+ */
+int stor_printf_search_spfile_next(int id, STOR_PRINTF_SE_HANDLE h, struct stor_printf_spfile_t *spfile, enum STOR_PRINTF_ERRNO *err)
+{
+    struct stor_printf_t *storprintf = NULL;
+    struct stor_printf_search_t *storprintf_se = NULL;
+    enum STOR_PRINTF_ERRNO e = STOR_PRINTF_SUCC;
+
+    e = id_to_stor_printf(id, &storprintf);
+    if (STOR_PRINTF_SUCC != e) {
+        STOR_PRINTF_ERRNO_SET(err, e);
+        return -1;
+    }
+    if (NULL == h || NULL == spfile) {
+        ERR("INVALID input param, h = %p, spfile = %p\n", h, spfile);
+        STOR_PRINTF_ERRNO_SET(err, STOR_PRINTF_INVALID_INPUT);
+        return -1;
+    }
+    storprintf_se = (struct stor_printf_search_t *)h;
+
+    STORPRINTF_REFCOUNT_INC(storprintf, id, err);
+    {
+        e = _stor_printf_spfile_search_next(storprintf, storprintf_se, spfile);
+    }
+    STORPRINTF_REFCOUNT_DEC(storprintf);
+    
+    STOR_PRINTF_ERRNO_SET(err, e);
+
+    if (STOR_PRINTF_TIMEOUT == e) {
+        return 0;
+    }
+
+    return (STOR_PRINTF_SUCC == e) ? 0 : -1;
+
+}
+
+
 /**@fn          int stor_printf_part_remove(int id, const char *partpath, enum STOR_PRINTF_ERRNO *err)
  * @brief       从指定id的stor_printf模块中删除指定分区
  * @param[in]   int id    - 描述stor_printf模块的id
@@ -2863,7 +2981,7 @@ int stor_printf_spfiles_print(int id, unsigned int prtmask, char *prtbuff, unsig
  * @note          
  */
 int stor_printf_close(int id, enum STOR_PRINTF_ERRNO *err)
-{   
+{      
     struct stor_printf_t *storprintf;
     enum STOR_PRINTF_ERRNO e = STOR_PRINTF_SUCC;
     int ret = -1;

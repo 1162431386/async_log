@@ -1,5 +1,6 @@
 #ifndef _ASYNC_LOG_H
 #define _ASYNC_LOG_H
+#include <time.h>
 
 #define LOG_LEVEL_TRACE 0
 #define LOG_LEVEL_DEBUG 1
@@ -8,6 +9,22 @@
 #define LOG_LEVEL_ERROR 4
 #define LOG_LEVEL_CRITICAL 5
 #define LOG_LEVEL_OFF 6
+
+typedef  int BOOL;
+
+#define TRUE 1
+#define FALSE 0
+
+
+#ifndef SAFE_STRNCPY
+#define SAFE_STRNCPY(dst, src, n) do { \
+    memset((char *)(dst), 0, (n)); \
+    strncpy((dst), (src), n); \
+    (dst)[n - 1] = '\0'; \
+}while (0)
+#endif
+
+
 
 typedef enum 
 {
@@ -25,6 +42,10 @@ typedef enum
 int asynclog(eLoggerLevel level,  const char *format, ...);
 void  setLogLevel(eLoggerLevel level);
 int log_stor_init();
+int app_stor_printf_search_async(time_t tStart, time_t tEnd, const char *pszFtpURL, BOOL bUploadSp, BOOL bCompress);
+time_t time_str_to_time_t(const char *str);
+int app_stor_printf_search_stopall(void);
+void set_log_show_thread_name(int isShowThreadName);
 
 #define FILE_NAME ((NULL == strrchr(__FILE__, '/')) ? (__FILE__) : (strrchr(__FILE__, '/') + 1))
 #define ASYNC_LOGT(fmt, ...) asynclog(trace,    "[%s() %s:%d]" fmt, __func__, FILE_NAME, __LINE__, ##__VA_ARGS__)

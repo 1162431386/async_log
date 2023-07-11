@@ -325,7 +325,6 @@ int cmd_serv_listen(const char *name)
     }
 
     unlink(name);
-    ERR("name %s\n", name);
     un.sun_family = AF_UNIX;
     strncpy(un.sun_path, name, sizeof(un.sun_path) - 1);
     iLen = sizeof(struct sockaddr_un);

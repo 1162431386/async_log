@@ -1,4 +1,4 @@
-# Install script for directory: /userData/wwk/work/async_log/example
+# Install script for directory: /userData/wwk/temp/async_log/example
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/userData/wwk/work/async_log/example/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/userData/wwk/temp/async_log/example/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

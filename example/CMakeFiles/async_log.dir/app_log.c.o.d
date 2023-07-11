@@ -1,5 +1,5 @@
 CMakeFiles/async_log.dir/app_log.c.o: \
- /userData/wwk/work/async_log/example/app_log.c \
+ /userData/wwk/temp/async_log/example/app_log.c \
  /usr/include/stdc-predef.h /usr/include/pthread.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -49,12 +49,28 @@ CMakeFiles/async_log.dir/app_log.c.o: \
  /usr/include/linux/stddef.h \
  /usr/include/x86_64-linux-gnu/asm/posix_types.h \
  /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
- /usr/include/asm-generic/posix_types.h /usr/include/unistd.h \
+ /usr/include/asm-generic/posix_types.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h /usr/include/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
- /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /userData/wwk/work/async_log/example/../include/async_log.h \
- /userData/wwk/work/async_log/example/../include/stor_printf.h
+ /usr/include/x86_64-linux-gnu/bits/unistd_ext.h /usr/include/errno.h \
+ /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /userData/wwk/temp/async_log/example/../include/async_log.h \
+ /userData/wwk/temp/async_log/example/../include/stor_printf.h \
+ /userData/wwk/temp/async_log/example/../include/app_cmd.h \
+ /userData/wwk/temp/async_log/example/../include/app_cmd_list.h \
+ /userData/wwk/temp/async_log/example/../include/app_sys_cmd.h

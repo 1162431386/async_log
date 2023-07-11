@@ -4,7 +4,7 @@
 
 
 #编译服务器
-make cmd_svr
+#make cmd_svr
 #编译客户端
 make cmd_cli
 
